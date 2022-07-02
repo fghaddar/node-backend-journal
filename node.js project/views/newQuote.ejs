@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+    <body>
+        <form method="POST" action="/quote/new">
+            Quote: <input type="text" name="quote">
+            Authors: <select name="authorId">
+                <% for (let i = 0; i < authors.length; i++) { %>
+                    <option value="<%= authors[i].authorId %>">
+                        <%= authors[i].firstName %> <%= authors[i].lastName %>
+                    </option>
+                <% } %>
+            </select>
+            Cateogires: <select name="category">
+                <% for (let i = 0; i < categories.length; i++) { %>
+                    <option value="<%= categories[i].category %>">
+                        <%= categories[i].category %>
+                    </option>
+                <% } %>
+            </select>
+            Likes: <input type="number" name="likes">
+            <button>Add</button>
+        </form>
+    </body>
+</html>

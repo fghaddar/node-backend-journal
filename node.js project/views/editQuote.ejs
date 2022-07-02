@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+    <body>
+        <form method="POST" action="/quotes/edit">
+            <input type="hidden" value="<%= quote[0].quoteId %>" name="quoteId">
+            Quote: <input type="text" value="<%= quote[0].quote %>" name="quote">
+            Category: <select name="category">                 
+                <% for (let i = 0; i < categories.length; i++) { %>
+                    <option 
+                        <% if ( categories[i].category == category ) { %>
+                            selected
+                        <% } %>
+                    ><%= categories[i].category %> 
+                </option>
+                <% } %>
+            </select>
+            Likes: <input type="number" value="<%= quote[0].likes %>" name="likes">
+            <button>Edit</button>
+        </form>     
+    </body>
+</html>

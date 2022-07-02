@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+    <body>
+        <h1>Quote Finder</h1>
+
+        <form action="/searchByKeyword">
+            Keyword: <input type="text" name="keyword">
+            <button>Search by keyword</button>
+        </form>
+        
+        <form action ="/searchByAuthor">
+            <select name="authorId">
+                <% for (author of authors) { %>
+                    <option value="<%=author.authorId%>">
+                        <%=author.firstName%> <%=author.lastName%>
+                    </option>
+                <% } %>
+            </select>
+            <button>Search by author</button>
+        </form>
+
+        <form action="/searchByCategory">
+            <select name="category">
+                <% for (category of categories) { %>
+                    <option>
+                        <%= category.category %>
+                    </option>
+                <% } %>
+            </select>
+            <button>Search by category</button>
+        </form>
+
+        <form action="/searchByLikes">
+            Range: <input type="number" name="lowerRange"> <input type="number" name="upperRange">
+            <button>Search by likes (enter a range)</button>
+        </form>
+        
+        <%- include("partials/footer.ejs") %>
+    </body>
+</html>
